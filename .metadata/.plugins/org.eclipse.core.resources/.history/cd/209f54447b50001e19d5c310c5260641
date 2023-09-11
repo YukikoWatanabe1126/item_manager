@@ -2,7 +2,6 @@ package com.example.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.entity.Item;
 import com.example.form.ItemForm;
-import com.example.service.CategoryService;
 import com.example.service.ItemService;
 
 
@@ -24,15 +22,9 @@ public class ItemController {
 	
 	private final ItemService itemService;
 	
-	private final CategoryService categoryService;
-
-    @Autowired
-    public ItemController(ItemService itemService, CategoryService categoryService) {
+	public ItemController(ItemService itemService) {
         this.itemService = itemService;
-        this.categoryService = categoryService; // 追加
     }
-	
-	
 	@GetMapping
     public String index(Model model) {
         List<Item> items = this.itemService.findByDeletedAtIsNull();
@@ -40,7 +32,15 @@ public class ItemController {
         return "item/index";
     }
 	
-	
+	@GetMapping("toroku")
+    public String torokuPage(@ModelAttribute("itemForm") ItemForm itemForm, Model model) {
+        // Categoryモデルから一覧を取得する
+        List<Category> categories = this.categoryService.findAll();
+
+        // viewにカテゴリを渡す
+        model.addAttribute("categories", categories);
+        return "item/torokuPage";
+    }
 	
 	@PostMapping("toroku")
 	public String toroku(ItemForm itemForm) {

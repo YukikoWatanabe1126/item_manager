@@ -32,7 +32,9 @@ public class ItemController {
         this.categoryService = categoryService; // 追加
     }
 	
-	
+	public ItemController(ItemService itemService) {
+        this.itemService = itemService;
+    }
 	@GetMapping
     public String index(Model model) {
         List<Item> items = this.itemService.findByDeletedAtIsNull();
@@ -40,7 +42,15 @@ public class ItemController {
         return "item/index";
     }
 	
-	
+	@GetMapping("toroku")
+    public String torokuPage(@ModelAttribute("itemForm") ItemForm itemForm, Model model) {
+        // Categoryモデルから一覧を取得する
+        List<Category> categories = this.categoryService.findAll();
+
+        // viewにカテゴリを渡す
+        model.addAttribute("categories", categories);
+        return "item/torokuPage";
+    }
 	
 	@PostMapping("toroku")
 	public String toroku(ItemForm itemForm) {

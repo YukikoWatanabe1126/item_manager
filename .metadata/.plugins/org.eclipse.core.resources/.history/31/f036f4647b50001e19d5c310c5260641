@@ -15,5 +15,11 @@ public class CategoryService {
         this.categoryRepository = categoryRepository;
     }
     
-    
+    @Service
+    public class CategoryService {
+        /* 省略 */
+        public List<Category> findAll() {
+            return this.categoryRepository.findAll();
+        }
+    }
 }

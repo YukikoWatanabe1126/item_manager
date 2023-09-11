@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.entity.Category;
 import com.example.entity.Item;
 import com.example.form.ItemForm;
 import com.example.service.CategoryService;
