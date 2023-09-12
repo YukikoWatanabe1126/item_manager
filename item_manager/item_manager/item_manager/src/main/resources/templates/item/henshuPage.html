@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <h1>商品編集ページ</h1>
+    <form th:action="@{/item/henshu/{id}(id=${id})}" th:object="${itemForm}" method="post">
+        <div>
+            <label>商品名</label>
+        </div>
+        <div>
+            <input type="text" th:field="*{name}" placeholder="商品名を入力してください">
+        </div>
+        <div>
+            <label>価格</label>
+        </div>
+        <div>
+            <input type="number" th:field="*{price}" placeholder="価格を入力してください">
+        </div>
+        <div>
+            <label>カテゴリ名</label>
+        </div>
+        <div>
+            <!-- itemFormのcategoryIdと一致したcategoryが選択された状態となる -->
+            <select th:field="*{categoryId}">
+                <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+            </select>
+        </div>
+        <div>
+            <input type="submit" name="send" value="編集する">
+        </div>
+        <div>
+            <a href="/item">戻る</a>
+        </div>
+    </form>
+</body>
+</html>
