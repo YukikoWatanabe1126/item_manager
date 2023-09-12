@@ -12,15 +12,22 @@
             <label>商品名</label>
         </div>
         <div>
-            <!-- 商品名はtext入力にします、th:field属性の値は*{フィールド名}です -->
             <input type="text" th:field="*{name}" placeholder="商品名を入力してください">
         </div>
         <div>
             <label>価格</label>
         </div>
         <div>
-            <!-- 価格はnumber入力にします -->
             <input type="number" th:field="*{price}" placeholder="価格を入力してください">
+        </div>
+        <div>
+            <label>カテゴリ名</label>
+        </div>
+        <div>
+            <select th:field="*{categoryId}">
+                <!-- カテゴリ一覧から選択できるようする -->
+                <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+            </select>
         </div>
         <div>
             <input type="submit" name="send" value="登録する">

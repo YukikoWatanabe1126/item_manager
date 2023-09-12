@@ -44,13 +44,16 @@ public class ItemService {
     
  // データ更新用のメソッドです
     public Item update(Integer id, ItemForm itemForm) {
+        // データ１件分のEntityクラスを取得します
         Item item = this.findById(id);
+        // Formクラスのフィールドをセットします
         item.setName(itemForm.getName());
         item.setPrice(itemForm.getPrice());
-        // カテゴリIDをセットする
+        // repository.saveメソッドを利用してデータの保存を行います
         item.setCategoryId(itemForm.getCategoryId());
         return this.itemRepository.save(item);
     }
+    
    
     
     public List<Item> findByDeletedAtIsNull() {
