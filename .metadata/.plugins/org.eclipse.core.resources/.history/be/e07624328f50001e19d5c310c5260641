@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <!-- 見出しが変わります -->
+    <h1>商品編集ページ</h1>
+    <!-- 登録処理のHTTPメソッドはPOSTにします -->
+    <form th:action="@{/item/henshu/{id}(id=${id})}" th:object="${itemForm}" method="post">
+        <div>
+            <label>商品名</label>
+        </div>
+        <div>
+            <!-- 商品名はtextにします、th:field属性の値は*{フィールド名}です -->
+            <input type="text" th:field="*{name}" placeholder="商品名を入力してください">
+        </div>
+        <div>
+            <label>価格</label>
+        </div>
+        <div>
+            <!-- 価格はnumberにします -->
+            <input type="number" th:field="*{price}" placeholder="価格を入力してください">
+        </div>
+        <div>
+            <input type="submit" name="send" value="登録する">
+        </div>
+        <div>
+            <!-- 一覧に戻る -->
+            <a href="/item">戻る</a>
+        </div>
+    </form>
+</body>
+</html>
