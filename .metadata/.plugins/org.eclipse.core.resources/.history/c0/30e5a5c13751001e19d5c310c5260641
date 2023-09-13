@@ -15,12 +15,12 @@ import com.example.repository.ItemRepository;
 public class ItemService {
 
     private final ItemRepository itemRepository;
+    private final CategoryRepository categoryRepository;
 
     @Autowired
     public ItemService(ItemRepository itemRepository) {
         this.itemRepository = itemRepository;
     }
-    
     
     public List<Item> findAll() {
         return this.itemRepository.findAll();

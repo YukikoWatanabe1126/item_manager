@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.entity.Item;
 import com.example.form.ItemForm;
+import com.example.repository.CategoryRepository;
 import com.example.repository.ItemRepository;
 
 @Service

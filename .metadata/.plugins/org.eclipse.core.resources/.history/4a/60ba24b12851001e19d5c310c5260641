@@ -21,19 +21,18 @@ public class ItemService {
         this.itemRepository = itemRepository;
     }
     
-    
     public List<Item> findAll() {
         return this.itemRepository.findAll();
     }
     
  // データ保存用のメソッドです
     public Item save(ItemForm itemForm) {
+        // Entityクラスのインスタンスを生成します
         Item item = new Item();
+        // フィールドのセットを行います
         item.setName(itemForm.getName());
         item.setPrice(itemForm.getPrice());
-        item.setCategoryId(itemForm.getCategoryId());
-        // 新規登録時は在庫数に0をセットする
-        item.setStock(0);
+        // repository.saveメソッドを利用してデータの保存を行います
         return this.itemRepository.save(item);
     }
     
