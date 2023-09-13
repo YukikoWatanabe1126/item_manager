@@ -95,8 +95,7 @@ public class ItemController {
 	
 	@PostMapping(path = "stock/{id}", params = "out")
     public String shukka(@PathVariable("id") Integer id, @RequestParam("stock") Integer inputValue) {
-		 this.itemService.shukka(id, inputValue);
-		 return "redirect:/item";
+        return "";
     }
 	
 }

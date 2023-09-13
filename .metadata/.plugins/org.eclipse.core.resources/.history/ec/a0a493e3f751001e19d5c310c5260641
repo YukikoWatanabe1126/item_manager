@@ -74,7 +74,7 @@ public class ItemService {
     	 return this.itemRepository.save(item);
     }
     
-    public Item shukka(Integer id, Integer inputValue) {
+    public Item shuka(Integer id, Integer inputValue) {
     	Item item = this.findById(id);
     	if (inputValue <= item.getStock()) {
             item.setStock(item.getStock() - inputValue);
