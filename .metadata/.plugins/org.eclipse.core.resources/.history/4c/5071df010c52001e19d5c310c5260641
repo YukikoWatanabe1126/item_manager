@@ -2,13 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org"
       th:replace="~{layout/base :: layout(~{::title}, ~{::link}, ~{::body/content()})}">
 <head>
-     
+    <meta charset="UTF-8">
     <!-- HTMLごとに利用ページの項目を入れておきましょう -->
     <title>商品一覧表示</title>
     <!-- index.html用のCSSファイルを読み込んでおく -->
     <link rel="stylesheet" href="/css/item/index.css">
 </head>
-<body>
 <h1>商品一覧表示ページ</h1>
 
     <!-- ↓ 新規登録ページへのリンクを削除 ↓ -->
@@ -59,5 +58,4 @@
         </tr>
     </tbody>
 </table>
-</body>
 </html>

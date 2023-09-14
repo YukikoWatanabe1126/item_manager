@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      th:replace="~{layout/base :: layout(~{::title}, ~{}, ~{::body/content()})}">
-
+<html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-    <h1>商品編集ページ</h1>
-    <form th:action="@{/item/henshu/{id}(id=${id})}" th:object="${itemForm}" method="post">
+    <h1>商品新規登録ページ</h1>
+    <!-- 登録処理のHTTPメソッドはPOSTにします -->
+    <form th:action="@{/item/toroku}" th:object="${itemForm}" method="post">
         <div>
             <label>商品名</label>
         </div>
@@ -25,15 +24,16 @@
             <label>カテゴリ名</label>
         </div>
         <div>
-            <!-- itemFormのcategoryIdと一致したcategoryが選択された状態となる -->
             <select th:field="*{categoryId}">
+                <!-- カテゴリ一覧から選択できるようする -->
                 <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
             </select>
         </div>
         <div>
-            <input type="submit" name="send" value="編集する">
+            <input type="submit" name="send" value="登録する">
         </div>
         <div>
+            <!-- 一覧に戻る -->
             <a href="/item">戻る</a>
         </div>
     </form>
