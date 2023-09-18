@@ -17,7 +17,7 @@
         <a href="/item/toroku">新規登録</a>
     </div>
     <!-- ↑ 新規登録ページへのリンクを削除 ↑ -->
-<table>
+<table class="tbl">
     <thead>
         <tr>
             <th>id</th>
@@ -26,7 +26,7 @@
             <th>在庫数</th>
             <th>カテゴリ</th>
             <!-- 入出荷枠の追加 -->
-            <th></th>
+            <th class="tbl-stock"></th>
             <th></th>
             <th></th>
         </tr>
@@ -41,19 +41,19 @@
             <!-- 入出荷ボタンの追加 -->
             <td>
                 <form th:action="@{/item/stock/{id}(id=${item.id})}" method="post">
-                    <input type="number" name="stock">
-                    <input type="submit" name="in" value="入荷">
-                    <input type="submit" name="out" value="出荷">
+                    <input class="tbl-form" type="number" name="stock">
+                    <input class="tbl-stock-btn" type="submit" name="in" value="入荷">
+                    <input class="tbl-stock-btn" type="submit" name="out" value="出荷">
                 </form>
             </td>
             <td>
                 <form th:action="@{/item/henshu/{id}(id=${item.id})}" method="get">
-                    <input type="submit" value="編集">
+                    <input class="tbl-btn" type="submit" value="編集">
                 </form>
             </td>
             <td>
                 <form th:action="@{/item/sakujo/{id}(id=${item.id})}"  method="post">
-                    <input type="submit" value="削除">
+                    <input class="tbl-btn" type="submit" value="削除">
                 </form>
             </td>
         </tr>
@@ -61,3 +61,22 @@
 </table>
 </body>
 </html>
+
+
+<!-- GET -->
+<a href="https://test.com?gender=man">Testのリンク</a>
+<a href="https://test.com?gender=woman">Testのリンク</a>
+
+<form action="http://localhost:8082/item/toroku">
+	パスワード<input type="password" name="pass">
+	<button type="submit">登録画面へ</button>
+</form>
+
+
+<!-- POST -->
+<form method="POST" action="https://test.com">
+	<input type="text">
+	<button type="submit">登録</button>
+</form>
+
+

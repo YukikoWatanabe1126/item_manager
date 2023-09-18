@@ -60,26 +60,27 @@ public class ItemController {
 	    return "redirect:/item";
 	}
 	
+	
+	
 	 @GetMapping("henshu/{id}")
-	    public String henshuPage(@PathVariable("id") Integer id, Model model
-	                             , @ModelAttribute("itemForm") ItemForm itemForm) {
-	        Item item = this.itemService.findById(id);
-	        itemForm.setName(item.getName());
-	        itemForm.setPrice(item.getPrice());
+    public String henshuPage(@ModelAttribute("itemForm") ItemForm itemForm, Model model,@PathVariable("id") Integer id) {
+        Item item = this.itemService.findById(id);
+        itemForm.setName(item.getName());
+        itemForm.setPrice(item.getPrice());
 
-	        // カテゴリIDをformにセットする
-	        itemForm.setCategoryId(item.getCategoryId());
+        // カテゴリIDをformにセットする
+        itemForm.setCategoryId(item.getCategoryId());
 
-	        // Categoryモデルから一覧を取得する
-	        List<Category> categories = this.categoryService.findAll();
+        // Categoryモデルから一覧を取得する
+        List<Category> categories = this.categoryService.findAll();
 
-	        model.addAttribute("id", id);
+        model.addAttribute("id", id);
 
-	        // viewにカテゴリを渡す
-	        model.addAttribute("categories", categories);
+        // viewにカテゴリを渡す
+        model.addAttribute("categories", categories);
 
-	        return "item/henshuPage";
-	    }
+        return "item/henshuPage";
+    }
 	
 	@PostMapping("henshu/{id}")
 	public String henshu(@PathVariable("id") Integer id, ItemForm itemForm) {

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>aPostのページ</h1>
+	
+	<a href="/item/a">aGetページへ</a>
+	
+	<form action="/item/a">
+		<button type="submit">aGetページへ</button>
+	</form>
+</body>
+</html>
