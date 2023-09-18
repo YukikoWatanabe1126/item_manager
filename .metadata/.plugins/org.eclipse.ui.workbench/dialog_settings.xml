@@ -1,3 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<section name="org.eclipse.ui.internal.QuickAccess">
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_WIDTH" value="600"/>
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_HEIGHT" value="675"/>
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_SIZE" value="true"/>
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_LOCATION" value="false"/>
+		<list key="orderedElements">
+			<item value="@+ &apos;itemManagerApplication&apos; (@SpringBootApplication &lt;: @SpringBootConfiguration, @Configuration, @Component) ItemManagerApplication@file:///C:/Users/kyohe/OneDrive/%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88/SLStudio_Lesson/item_manager/item_manager/src/main/java/com/example/ItemManagerApplication.java362,1140215423"/>
+		</list>
+		<list key="orderedProviders">
+			<item value="org.eclipse.lsp4e/org.eclipse.lsp4e.operations.symbols.WorkspaceSymbolsQuickAccessProvider"/>
+		</list>
+		<list key="textEntries">
+			<item value="1"/>
+		</list>
+		<list key="textArray">
+			<item value="@spring"/>
+		</list>
+	</section>
 </section>
